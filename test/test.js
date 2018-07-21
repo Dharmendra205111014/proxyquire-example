@@ -6,10 +6,12 @@ var
 
   var stubs = {
     './folder1/sub/pub': {
-      called: function() {
-        return 'goodbye';
+      default: {
+        called: function() {
+          return 'goodbye';
+        }
       },
-      '@runtimeGlobal': true
+      '@global': true
     }
   };
 
@@ -19,7 +21,7 @@ var
   describe("testing full app", function() {
     it("should call all functions", function() {
         var result = main.default.called();
-        console.log("Result is => ", result);
+        console.log("Result is => \n", result);
         expect(result).not.to.be.null;
     })
   });
